@@ -1,12 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест страница</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14main6_1</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- так можно подключать fontawesome -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" crossorigin="anonymous"> -->
+    <!-- так тоже можно подключать fontawesome(через свой кабинет) -->
+    <script src="https://kit.fontawesome.com/c268de5177.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/slick.css">
+
 </head>
 <body>
-    <h1>Первый заголовок</h1>
-    <h1>Второй заголовок</h1>
+    <!-- 14main6_1 -->
+<!-- Создание веб-сайта  -->
+    <!-- Создаем шапку тег <header></header> -->
+     <!-- прописать класс в теге span:span.logo -->
+      <!-- если в header прописать class = "fixed",то шапка не будет уходить
+       но его нужно обязательно прописать -->
+     <header>
+        <span class="logo">OnlyWipe</span>
+        <div class="nav">
+                    <!-- ссылка: -->
+            <a href="#">Главная</a>
+            <a href="#">О нас</a>
+            <a href="#">Услуги</a> 
+        </div>
+        <span class="menu" id="show-menu">
+            <!-- тут создаем кнопку,кот. будет выезжать справа на сайте -->
+            <!-- надо создать атрибут id-т.к. мы будем его выбирать и вешать функционал -->
+            <!-- можно создать кнопку,но лучше из fontawesomome.com выбрать иконку -->
+            <i class="fa-solid fa-bars"></i>
+            <!-- чтобы это все работало надо подключить css файл для работы fontawesome -->
+            <!-- чтобы подключить,надо зайти на сайт fontawesome,зарегистрироваться,и на эмейл прийдет ссылка
+            для подключения:<script src="https://kit.fontawesome.com/c268de5177.js" crossorigin="anonymous"></script> -->
+            <!-- теперь переходим в файл style.css -->
+            
+
+        </span>
+     </header>
+<!-- прописываем создание меню -->
+     <div id="hidden-menu">
+        <!-- class="close" -кнопка,кот. позволяет закрыть меню -->
+        <span class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </span>
+        <h2>Меню</h2>
+        <!-- список -->
+         <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Про компанию</a></li>
+            <li><a href="#">Услуги</a></li>
+         </ul>
+     </div>
+
+
+     <!-- так тоже можно подключать fontawesome(грузится в конце) -->
+    <!-- <script src="https://kit.fontawesome.com/c268de5177.js" crossorigin="anonymous"></script> -->
+
+    <!-- теперь делаем картинку на весь экран -->
+     <section class="full-page">
+        <h1>OnlyWipe - Разрыв пуканов начинается каждые 2 недели</h1>
+        <h3>быстро, легко, удобно, инновационно</h3>
+        <button>Узнай больше <i class="fa-solid fa-arrow-right"></i>   
+        </button>
+     </section>
+    <!-- создадим секцию с описанием нашего проэкта -->
+     <section class="features">
+        <div>
+            <!-- вписываем ссылки на картинки -->
+             <!-- можно прописать width="80" height="80",чтобы выровнять картинки -->
+            <img src ="img/fast-icon4.png" alt=""> 
+            <h4>Быстрый</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, repellat.</p>
+        </div>
+        <div>
+            <img src ="img/cool-icon1.ico" alt="">
+            <h4>Крутой</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, repellat.</p>
+        </div>
+        <div>
+            <img src ="img/light-icon2.webp" alt="">
+            <h4>Легкий</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, repellat.</p>
+        </div>
+     </section>
+<!-- создаем блок для карусели -->
+    <section class="galery">
+        <h2>Немного фотографий</h2>
+        <div id="slider">
+            <div><img src="https://cdn.ncwest.com/lineage2/05212024-8D14BCF77D8D6A63/images/desktop/home/L2-Aden-website-main-banner-1920x1080.jpg" width="500" height="300" alt=""></div>
+            <div><img src="https://photobooth.cdn.sports.ru/preset/news/6/6b/1ea47ce434caba2a05cea2f5e2376.jpeg" width="500" height="300" alt=""></div>
+            <div><img src="https://s1.1zoom.me/big0/247/273030-werecat.jpg" width="500" height="300" alt=""></div>
+            <div><img src="https://ixbt.online/gametech/covers/2022/06/02/nova-filepond-6y5HP4.jpg" width="500" height="300" alt=""></div>
+        </div>
+    </section>
+
+
+     <!-- создаем еще 1 блок,кот будет с задним фоном и прокруткой -->
+      <!-- форма для подписки на эмейл -->
+      <section class="bg-fixed">
+        <h3>Форма подписки</h3>
+        <!-- placeholder="Ваша почта" - поле для ввода -->
+        <input type="email" placeholder="Ваша почта">
+        <button>Подписаться <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <!-- теперь прописываем стили для этого блока -->
+      </section>
+
+      <!-- прописываем футер -->
+       <footer>
+        <div class="up-btn"><i class="fa-solid fa-arrow-up"></i>
+        </div>
+        <!-- &copy - спец символ HTML -->
+        <p>Все права защищены &copy</p>
+        <!-- иконки на ссылки в соз сети -->
+        <div class="social">
+            <div><i class="fa-brands fa-youtube" style="color: #ef061d;"></i></div>
+            <div><i class="fa-brands fa-telegram" style="color: #0e37dd;"></i></div>
+            <div><i class="fa-brands fa-discord" style="color: #473c6b;"></i></div>
+            
+        </div>
+       </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
