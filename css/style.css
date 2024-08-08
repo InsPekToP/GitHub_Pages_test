@@ -1,0 +1,361 @@
+/* Сначало надо выполнить подключение общего шрифта,кот. будет на сайте */
+/*переходим на fonts.google.com*/
+/*вибираем шрифт monserat*/
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200,400,500,700&display=swap&subset=cyrillic-ext'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+/*добавляем общие стили,а затем добавим стили для шапки*/
+*{
+    margin: 0;/*отступ внушний*/
+    padding: 0;/*отступ внутрений*/
+    outline: none;/*обводка(лучше прописывать всегда)*/
+}
+
+body{
+    background: #fafafa;
+    font-size: 16px;/*размер шрифта*/
+    font-family: "Montserrat", sans-serif;/*общий шрифт*/
+    font-weight: 400;/*ширина шрифта по умолчанию*/
+}
+
+/*общие стили для ссылок*/
+a {
+    text-decoration:none;/*без нижнего подчеркивания*/
+    transition: color 600ms ease ;/*делаем анимацию,кот.применяется к цвету
+    и ф-ией ease - разная плавность перехода*/
+}
+
+img {max-width: 100%;}/*все картинки не будут больше 100% чем родительский эл-нт*/
+/*не будут вылазить за рамки родильского эл-та
+
+/*шапка*/
+header {
+    width: 90%;/*ширина*/
+    padding: 20px 5%;/*отступы:20px -по вертикали,5% - по горизонтали*/
+    background: #fff;
+    display: flex;/*выравнивание*/
+    justify-content: space-between;/*расположение контента-по бокам*/
+    align-items: center;/*центрируем по вертикали*/
+    border-bottom: 10px solid silver;/*обводка снизу*/
+}
+
+/*далее добавляем стили,для тех тегов что в внутри*/
+
+header > .logo {
+    font-size: 25px;/*размер шрифта*/
+    font-weight: 700;/*жирность*/
+}
+
+/*передвигаем Главная Услуги Про компанию ближе к центру*/
+header> .nav {
+    position: relative;
+    left: -50px;
+}
+/*теперь обращаемся ко всем ссылкам,что внутри*/
+header > .nav a {
+    margin: 0 15px;/*отступы спарава и слева по 15px*/
+    display: inline-block;/*что то про расположение*/
+    color: #a3a3a3;
+    /* cursor: default; */
+}
+
+/*эфект при наведении*/
+header > .nav a:hover,
+header > .menu:hover {color: #4f4e4e;}
+
+/*стили для меню*/
+header > .menu {
+    cursor: pointer;/*активный курсор при наведении*/
+    color: #a3a3a3;
+    font-size: 23px;
+}
+
+/* делаем так чтобы шапка сьезжала вниз,когда мы проскролили 50% сайта
+/*добавляем новый класс*/
+.fixed { 
+    position: sticky;/*позиция документов(чтобы это не значило*/
+    top:0; 
+    left: 0; 
+    border-bottom: 10px solid silver;/*чтобы мы различали где шапка а где разделение 
+    сайта(обводка - 2px) (чтобы цвета не сливались)*/ /*можно поиграться со стилями*/ 
+    background: #9D9D9D;
+    z-index: 2;/*чтобы карусель не наезжала на шапку(можно указать 10,
+    но я не знаю зачем так много)*/
+}
+/*стили ддя меню(список).Обращаемся к div у кот. есть hiden-menu*/
+#hidden-menu{
+    width: 200px;/*ширина*/
+    position: fixed;/*это нужно чтобы в любом месте открытия оно показывалось*/
+    top: 0;/*сверху отступ*/
+/*при закрузки страницы хотим,чтобы этого меню не было видно,для этого прописываем
+ right: 0;(width: 300px; - ширина 300px и она как бы right: -300px;- вся справа)*/
+    right: -300px;
+    /*right: 0;*//*справа*/
+    height: 100vh;/*высота 100% экрана*/
+    background: #fff;
+    z-index: 10;/*нужно,чтобы показывалось сверх всех эл-ов,
+    по умолчанию у всех эл-ов z-index=1.Поэтому у нас будет сверху всего*/
+    text-align: center;
+    /*теперь есть черные точки(это от списка,потом уберем)*/
+}
+/*стили для кнопки .close*/
+#hidden-menu .close{
+    font-size: 40px;/*шрифт*/
+    float: right;/*расположение*/
+    margin-right: 20px;/*отступ справа*/
+    font-weight: bold;/*жирный шрифт*/
+    cursor: pointer;/*активный кирсор*/
+    transition: color 600ms ease;
+}
+/*эффект при наведении*/
+#hidden-menu .close:hover{color: #ccc;}
+
+/*стили для слова Меню*/
+#hidden-menu h2 {
+    margin-top: 100px;/*отступ сверху*/
+    margin-bottom: 20px;/*снизу*/
+}
+/*стили для списка*/
+#hidden-menu ul {
+    list-style: none;/*пропали кружочки*/
+}
+/*стили для блоков*/
+#hidden-menu ul li{
+    display: block;/*чтобы точно были как блоки*/
+    margin-bottom: 10px;
+}
+/*стили для ссылок внутри меню*/
+#hidden-menu ul li a {color: #333;}
+/*эффект при наведении*/
+#hidden-menu ul li a:hover {color: #ccc;}
+
+/*попытка вывести плавно ПОЛУЧИЛОСЬ!!!!!!!!!!(осталось только подправить под сайт*/
+/* .fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    z-index: 5;
+    -webkit-animation-name: showHeader;
+    animation-name: showHeader;
+    -webkit-animation-duration: .6s;
+    animation-duration: .6s;
+    background-color: rgba(255,255,255,.8)
+}
+
+@-webkit-keyframes showHeader {
+    from {
+        top: -70px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+@keyframes showHeader {
+    from {
+        top: -70px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+} */
+/*осталось подправить*/
+
+/*поираться со стилями в ссылках и меню*/
+.fixed .nav a {color:#FFFFFF;}
+
+.fixed .menu i {color: #000000;}
+
+/*теперь делаем картинку на весь экран*/
+.full-page,
+.bg-fixed {
+    height: 95vh;/*95 процентов высоты экрана*/
+    background: url('../img/main-bg.jpg') no-repeat center center ; /*не повторяется,центр по вертикали и горизонтали*/
+    background-attachment: fixed;/*фиксируем задний фон*/
+    background-size: cover;/*растягиваем на весь экран*/
+    background-blend-mode: multiply;/*сочетание двух слоев*/
+    background-color: #3b3b3b;/*сочетается с серым,поэтому получается затемненный*/
+    text-align: center;/*текст по центру*/
+    color: #fff;
+}
+/*работаем с текстом(заголовок h1)*/
+.full-page h1 {
+    padding-top: 250px;/*высота заполнения сверху*/
+    font-size: 45px;/*размер шрифта*/
+    width: 500px;/*ширина*/
+    margin: 0 auto;/*отступы-0 по вертикали,auto-по горизонтали(примерно по центру)*/
+}
+/*заголовок h3*/
+.full-page h3 {
+    margin: 20px 0;/*отступы-20px по вертикали,0-по горизонтали*/
+    font-size: 15px;/*размер шрифта*/
+    text-transform: uppercase;/*все буквы в верхнем регистре*/
+    font-weight: 500;/*жирность шрифта*/
+    color: #ccc;
+}
+/*работаем с кнопкой*/
+.full-page button,
+.bg-fixed button {
+    /* Падинги (свойство padding ) — это внутренние отступы от границ элемента до его содержимого.
+     Маржины (свойство margin ) — это внешние отступы от границ элемента до соседних элементов. */
+    padding: 15px 25px;/*тоже отступы?-15px по вертикали,25-по горизонтали*/
+    border-radius: 5px;/*закругление*/
+    border:0;/*обводка*/
+    font-size: 14px;
+    cursor: pointer;/*активный курсов(палец)*/
+    background: #ffc107;
+    color: #704404;/*цвет текста*/
+    font-weight: 600;
+    transition: background 600ms ease;  /*без этого и так плавно переходит*/
+}
+
+
+/*сначало передвинем саму стрелочку*/
+.full-page button i,
+.bg-fixed button i {
+    margin-left: 5px;/*отступ слева*/
+    transition: margin 600ms ease;/*плавность перехода*/
+}
+
+/*эфект при наведении на кнопку*/
+.full-page button:hover,
+.bg-fixed button:hover {background: #ff9800;}
+
+/*теперь хотим,чтобы стрелочка отьезжала немного вбок*/
+/*эффект при наведении на стрелочку?*/
+.full-page button:hover i,
+.bg-fixed button:hover i {
+    margin-left: 15px;
+    color: #fff;
+}
+
+/*прописываем стили для картинок*/
+.features {
+    display: flex;/*выравнивание*/
+    justify-content: space-between;/*разделяем пространство 2 слева,1 справа*/
+    width: 60%; /*ширина 60%*/
+    margin-left: 20%;
+}
+/*стили для дивов*/
+.features > div{
+    width: 300px;/*ширина*/
+    text-align: center;/*выравнивание по центру*/
+    margin: 50px 10px;
+}
+.features > div img {
+    width: 80px;
+    margin-bottom: 10px;/*низ эл-та*/
+}
+/*стили для заголовков*/
+.features > div h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;/*отступ внизу заголовка*/
+    color: #454545;
+}
+.features > div p {font-weight: 200;}
+
+/*стили для карусели(блока в целом)*/
+.galery {
+    width: 70%;/*ширина*/
+    margin: 50px 15%;/*отступы*/
+    position: relative;/*расположение*/
+    left:250px;
+}
+/*стили для кнопок*/
+
+.galery .arrow-prev,
+.galery .arrow-next{
+    font-size: 28px;
+    position: absolute;/*позиционирование относ блока galery*/
+    top: 50%;/*где находится*/
+    cursor: pointer;
+    transition: all 600ms ease;
+}
+/*стили для разволожения этих кнопок*/
+.galery .arrow-prev {left: -50px;}
+.galery .arrow-next {right: 32%;}
+
+/*эффекты при наведении*/
+.galery .arrow-prev:hover,
+.galery .arrow-next:hover {
+    transform: scale(1.4);/*увеличаваем кнопку в 1,4 раза*/
+}
+
+
+/*стили для div*/
+.galery div {
+    margin-top: 15px;
+    margin-right: 50px;
+}
+
+/*стили для подписки*/
+/*стили начинают повторятся,поэтому можем через зяпятую прописать в .full-page*/
+/*тут укажем только height:300px;*/
+.bg-fixed {
+    height:300px;
+    /*добавляем картинку на бекграунд*/
+    background-image: url('../img/bg-fixed.jpg');
+}
+/*стили для заголовков*/
+.bg-fixed h3 {
+    font-size: 25px;
+    padding-top: 130px;
+    margin-bottom: 20px;
+}
+/*input поле*/
+.bg-fixed input {
+    padding: 14px 20px;
+    width: 300px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    background: #fafafa;
+}
+/*стили для кнопки (подписаться) такие же как (узнать больше),
+поэтому через запятую прописываем в .full-page button*/
+
+/*прописываем стили для футера*/
+footer{
+    width: 90%;
+    padding: 50px 5%;
+    display: flex;/*выравнивание текста по центру*/
+    justify-content: space-between;/*расположение блоков 2 сбоку,3й справа*/
+    align-items: center;/*дочерние эл-ты по центру(не совсем понятно)*/
+}
+/*стили для кнопки вверх*/
+footer .up-btn,
+footer .social div{
+    width: 50px;/*высота*/
+    height: 50px;/*ширина*/
+    text-align: center;/*текст по центру*/
+    line-height: 50px;/*высота линейного блока*/
+    border-radius: 50%;
+    background: #eee;
+    border: 1px solid silver;/*обводка круг с радиусом 1px и цветом серым*/
+    cursor: pointer;/*активный курсор при наведении*/
+    color: #3b3b3b;
+    transition: transform 600ms ease;/*делаем для эффекта при наведении(чтобы плавно было)*/
+}
+/*добавляем эффект при наведении*/
+footer .up-btn:hover,
+footer .social div:hover {
+    transform: translateY(-10px);/*меняет свое положение по оси Y вверх(-10px)*/
+}
+/*стили для дивов в футере*/
+footer .social div{
+    display: inline-block;/*чтобы все распологались в 1 ряд*/
+    margin-left: 15px;/*отступы слева*/
+    /*чттобы были одинаковые стили с кнопкой через зяпятую прописываем в footer .up-btn - footer div*/
+}
+
